@@ -1,0 +1,16 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: evaluate-container
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/mprechtl/evaluate-container-knative
+          securityContext:  
+            #readOnlyRootFilesystem: true
+            #capabilities:
+              #drop:
+                #- NET_RAW
+                #- CHOWN
